@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Military Veteran to Entrepreneur :: Resources</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+<div id="cover">
+
+    <header class="site-header">
+        <div class="container brand">
+            <h1><a href="index.html">Military Veteran to Entrepreneur</a></h1>
+        </div>
+    </header>
+
+     <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutme.html">About Me</a></li>
+            <li><a href="military-veteran.html">Military Veteran</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="transition.html">Transition</a></li>
+            <li><a href="entrepreneur.html">Entrepreneur</a></li>
+            <li><a href="startup-guide.html">Startup Guide</a></li>
+            <li><a href="success-stories.html">Success Stories</a></li>
+            <li><a href="seminar-registration.html">Seminar Registration</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <section class="hero hero--resources"></section>
+
+        <section class="page-quote">
+            <p class="quote">
+                <strong>&ldquo;Service doesn’t end when the uniform comes off &mdash; it evolves.&rdquo;</strong>
+            </p>
+        </section>
+
+       <section class="card">
+    <h2>Veteran Entrepreneur Resources</h2>
+    <p>
+                These programs and organizations provide training, funding, mentorship,
+                and support to help military veterans successfully transition into entrepreneurship.
+            </p>
+
+    <label for="resourceSearch">Search Resources:</label>
+    <input 
+        type="text" 
+        id="resourceSearch" 
+        placeholder="Search by program, support type, or cost">
+
+    <table id="resourceTable">
+        <caption>Military Veteran to Entrepreneur Resources</caption>
+        <thead>
+            <tr>
+                <th>Program</th>
+                <th>Description</th>
+                <th>Support Type</th>
+                <th>Cost</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+const resources = [
+        {program: "Boots to Business",
+            description: "Entrepreneurship training program offered through the SBA for transitioning service members.",
+            support: "Training & Education",
+            cost: "Free"},
+        {program: "Veterans Business Outreach Center (VBOC)",
+            description: "Provides business development assistance, mentorship, and training for veteran entrepreneurs.",
+            support: "Mentorship & Training",
+            cost: "Free"},
+        {program: "Small Business Development Center (SBDC)",
+            description: "Offers local support, business planning, and financial guidance for startups and small businesses.",
+            support: "Consulting & Planning",
+            cost: "Free / Low Cost"},
+        {program: "Veteran Entrepreneur Communities",
+            description: "Networking groups and online communities that connect veterans with other entrepreneurs.",
+            support: "Networking",
+            cost: "Free"},
+        {program: "Chamber of Commerce",
+            description: "Local business organizations that provide networking opportunities and business exposure.",
+            support: "Networking & Growth",
+            cost: "Varies"}];
+
+    const tbody = document.querySelector("#resourceTable tbody");
+    const searchInput = document.getElementById("resourceSearch");
+
+    function displayResources(resourceList) {
+        tbody.innerHTML = "";
+
+        resourceList.forEach(item => {
+            const row = document.createElement("tr");
+
+             row.innerHTML = `
+                <td>${item.program}</td>
+                <td>${item.description}</td>
+                <td>${item.support}</td>
+                <td>${item.cost}</td>
+            `;
+
+            tbody.appendChild(row);});}
+
+    displayResources(resources);
+
+    searchInput.addEventListener("keyup", function () {
+        const searchText = searchInput.value.toLowerCase();
+
+        const filteredResources = resources.filter(item => {
+            return (item.program.toLowerCase().includes(searchText) ||
+                item.description.toLowerCase().includes(searchText) ||
+                item.support.toLowerCase().includes(searchText) ||
+                item.cost.toLowerCase().includes(searchText));});
+        displayResources(filteredResources);});
+});
+</script>
+
+        <section class="two-col-grid">
+
+            <div class="card">
+                <h2>Funding & Support</h2>
+                <ul>
+                    <li>SBA Veteran programs</li>
+                    <li>Boots to Business training</li>
+                    <li>Local Small Business Development Centers (SBDC)</li>
+                    <li>Veteran business mentorship programs</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Mentorship & Networking</h2>
+                <ul>
+                    <li>Veteran entrepreneur communities</li>
+                    <li>Chamber of Commerce</li>
+                    <li>Industry meetups</li>
+                    <li>Online communities (LinkedIn groups, forums)</li>
+                </ul>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <small>
+            &copy; 2026 Military Veteran to Entrepreneur <br>
+            <a href="mailto:ab65471@georgiasouthern.edu">ab65471@georgiasouthern.edu</a>
+        </small>
+    </footer>
+
+</div>
+</body>
+</html>
